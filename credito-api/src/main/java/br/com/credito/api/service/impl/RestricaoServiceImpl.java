@@ -2,6 +2,7 @@ package br.com.credito.api.service.impl;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -17,13 +18,16 @@ import br.com.credito.api.service.RestricaoService;
 public class RestricaoServiceImpl implements RestricaoService {
     private RestTemplate restTemplate;
 
+    @Value("${environment.uri}")
+    private String uri;
+
     public RestricaoServiceImpl(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
     @Override
     public List<Restricao> verificar(final Long clienteId) {
-        final String URL = "http://localhost:8083/api/restricoes";
+        final String URL = uri + ":8083/api/restricoes";
 
         final ResponseEntity<List<Restricao>> response = restTemplate.exchange(
                 URL, HttpMethod.GET, new HttpEntity<>(montarHeaders(clienteId)),

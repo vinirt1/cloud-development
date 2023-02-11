@@ -26,6 +26,6 @@ public class RestricaoController {
     public ResponseEntity<List<RestricaoDTO>> verificar(@RequestHeader("clienteId") Long clienteId) {
         final List<RestricaoDTO> restricoes = this.restricaoService.verificar(clienteId);
 
-        return new ResponseEntity<List<RestricaoDTO>>(restricoes, HttpStatus.CREATED);
+        return new ResponseEntity<List<RestricaoDTO>>(restricoes, HttpStatus.OK);
     }
 }

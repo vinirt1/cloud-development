@@ -24,6 +24,6 @@ public class LimiteController {
     public ResponseEntity<LimiteDTO> contratar(@RequestHeader("clienteId") Long clienteId) {
         final LimiteDTO limite = this.limiteService.verificar(clienteId);
 
-        return new ResponseEntity<LimiteDTO>(limite, HttpStatus.CREATED);
+        return new ResponseEntity<LimiteDTO>(limite, HttpStatus.OK);
     }
 }

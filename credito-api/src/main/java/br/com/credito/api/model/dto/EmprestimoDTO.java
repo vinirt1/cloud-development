@@ -1,7 +1,5 @@
 package br.com.credito.api.model.dto;
 
-import java.time.LocalDateTime;
-
 import br.com.credito.api.model.entity.Emprestimo;
 
 public class EmprestimoDTO {

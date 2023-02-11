@@ -1,4 +1,4 @@
 FROM openjdk:11
-ADD target/limite-api-0.0.1-SNAPSHOT.jar app.jar
-EXPOSE 8082
+ADD target/restricao-api-0.0.1-SNAPSHOT.jar app.jar
+EXPOSE 8083
 ENTRYPOINT ["java","-jar","/app.jar"]

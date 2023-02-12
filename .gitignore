@@ -19,6 +19,10 @@ target/
 *.iml
 *.ipr
 
+### Teste API
+
+/teste-api
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/

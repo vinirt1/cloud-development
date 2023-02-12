@@ -15,7 +15,7 @@ import br.com.credito.api.service.LimiteService;
 public class LimiteServiceImpl implements LimiteService {
     private RestTemplate restTemplate;
 
-    @Value("${environment.uri}")
+    @Value("${environment.uri.api.limite}")
     private String uri;
 
     public LimiteServiceImpl(RestTemplate restTemplate) {
@@ -24,7 +24,7 @@ public class LimiteServiceImpl implements LimiteService {
 
     @Override
     public Limite verificar(final Long clienteId) {
-        final String URL = uri + ":8082/api/limites";
+        final String URL = uri + "/api/limites";
 
         final ResponseEntity<Limite> response = restTemplate.exchange(
                 URL, HttpMethod.GET, new HttpEntity<>(montarHeaders(clienteId)), Limite.class);

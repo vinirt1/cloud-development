@@ -18,7 +18,7 @@ import br.com.credito.api.service.RestricaoService;
 public class RestricaoServiceImpl implements RestricaoService {
     private RestTemplate restTemplate;
 
-    @Value("${environment.uri}")
+    @Value("${environment.uri.api.restricao}")
     private String uri;
 
     public RestricaoServiceImpl(RestTemplate restTemplate) {
@@ -27,7 +27,7 @@ public class RestricaoServiceImpl implements RestricaoService {
 
     @Override
     public List<Restricao> verificar(final Long clienteId) {
-        final String URL = uri + ":8083/api/restricoes";
+        final String URL = uri + "/api/restricoes";
 
         final ResponseEntity<List<Restricao>> response = restTemplate.exchange(
                 URL, HttpMethod.GET, new HttpEntity<>(montarHeaders(clienteId)),

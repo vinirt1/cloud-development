@@ -49,6 +49,8 @@ public class EmprestimoServiceImpl implements EmprestimoService {
             final Emprestimo novoEmprestimo = this.apoliceRepository
                     .save(new Emprestimo(clienteId, contrataEmprestimoDTO));
 
+            LOGGER.info("Empréstimo gravado com sucesso!");
+
             return new EmprestimoDTO(novoEmprestimo);
         }
 
